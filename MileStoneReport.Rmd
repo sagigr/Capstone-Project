@@ -1,0 +1,54 @@
+## Capstone Project: Milestone Report
+
+# Exploratory Data Analysis and Modeling
+
+Sagi Greenstine
+
+## About the Report and the Assignment
+
+This is the Milestone Report of the [Capstone Project](https://www.coursera.org/learn/data-science-project) of Data Science Specialization introduced by Johns Hopkins University through Coursera.  
+The main goal of the Capstone Project is creating a data product that can predict the next word that the user will type (predicting the next word based on the previous 1, 2, or 3 words, and building a model to handle cases where people will want to type a combination of words that does not appear in the corpora).  
+The goal of this report is just to display that I've gotten used to working with the data and that I'm on track to create my prediction algorithm. The report explains my exploratory analysis and my goals for the eventual app and algorithm.
+
+## Data Processing
+
+### Loading and preprocessing the data
+
+The [data set](https://d396qusza40orc.cloudfront.net/dsscapstone/dataset/Coursera-SwiftKey.zip) is from a corpus called [HC Corpora](www.corpora.heliohost.org).
+
+In this report I will use the English database, but the dataset also includes three other databases in German, Russian and Finnish.  
+In the English data set we have the three following files of the English Blogs, News and Twitter data:
+
+- **en_US.blogs.txt** 
+- **en_US.news.txt**
+- **en_US.twitter.txt**
+
+
+```{r loaddata}
+
+```
+
+```{r strdataset, results="hide"}
+
+```
+
+
+
+## Results
+
+Now, after the loading and preprocessing the data, let's answer on following questions.
+
+#### 1. Across the United States, which types of events (as indicated in the EVTYPE variable) are most harmful with respect to population health?
+
+Let's find the most harmful event types for population health, across the US.
+
+```{r healthdamage}
+
+```
+
+Top 10 event types that caused largest number of fatalities:
+
+```{r topfatalities}
+
+```
+
