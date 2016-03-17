@@ -16,14 +16,14 @@ The goal of this report is just to display that I've gotten used to working with
 
 The [data set](https://d396qusza40orc.cloudfront.net/dsscapstone/dataset/Coursera-SwiftKey.zip) is from a corpus called [HC Corpora](www.corpora.heliohost.org).
 
-In this report I will use the English database, but the dataset also includes three other databases in German, Russian and Finnish.  
+In this report I will use the English database, but the data set also includes three other databases in German, Russian and Finnish.  
 In the English data set we have the three following files of the English Blogs, News and Twitter data:
 
 - **en_US.blogs.txt** 
 - **en_US.news.txt**
 - **en_US.twitter.txt**
 
-Let's see some basic details of these files, such as sizes of files (Mb) and lenghts (numbers of lines):
+Let's see some basic details of these files, such as sizes of the files (Mbs):
 
 ```{r loaddata, cache=TRUE, warning=FALSE}
 file.info("Coursera-Swiftkey/final/en_US/en_US.blogs.txt")$size / 1024^2
@@ -33,33 +33,19 @@ file.info("Coursera-Swiftkey/final/en_US/en_US.twitter.txt")$size / 1024^2
 blogs <- readLines("Coursera-Swiftkey/final/en_US/en_US.blogs.txt")
 news <- readLines("Coursera-Swiftkey/final/en_US/en_US.news.txt")
 twitter <- readLines("Coursera-Swiftkey/final/en_US/en_US.twitter.txt")
-length(blogs); length(news); length(twitter)
-
 ```
 
+Let's see some statistics about the data sets, such as:  
+1. Lines - number of lines (number of non-missing strings in the vector);  
+2. LinesNEmpty - number of lines with at least one non-WHITE_SPACE character;  
+3. Chars - total number of Unicode code points detected;  
+4. CharsNWhite - number of Unicode code points that are not WHITE_SPACEs;  
 
-
-```{r strdataset, results="hide"}
-
+```{r statdataset,cache=TRUE, warning=FALSE}
+library(stringi)
+stri_stats_general(blogs)
+stri_stats_general(news)
+stri_stats_general(twitter)
 ```
-
-
 
 ## Results
-
-Now, after the loading and preprocessing the data, let's answer on following questions.
-
-#### 1. Across the United States, which types of events (as indicated in the EVTYPE variable) are most harmful with respect to population health?
-
-Let's find the most harmful event types for population health, across the US.
-
-```{r healthdamage}
-
-```
-
-Top 10 event types that caused largest number of fatalities:
-
-```{r topfatalities}
-
-```
-
