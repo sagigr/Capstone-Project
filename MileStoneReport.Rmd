@@ -23,10 +23,21 @@ In the English data set we have the three following files of the English Blogs, 
 - **en_US.news.txt**
 - **en_US.twitter.txt**
 
+Let's see some basic details of these files, such as sizes of files (Mb) and lenghts (numbers of lines):
 
-```{r loaddata}
+```{r loaddata, cache=TRUE, warning=FALSE}
+file.info("Coursera-Swiftkey/final/en_US/en_US.blogs.txt")$size / 1024^2
+file.info("Coursera-Swiftkey/final/en_US/en_US.news.txt")$size / 1024^2
+file.info("Coursera-Swiftkey/final/en_US/en_US.twitter.txt")$size / 1024^2
+
+blogs <- readLines("Coursera-Swiftkey/final/en_US/en_US.blogs.txt")
+news <- readLines("Coursera-Swiftkey/final/en_US/en_US.news.txt")
+twitter <- readLines("Coursera-Swiftkey/final/en_US/en_US.twitter.txt")
+length(blogs); length(news); length(twitter)
 
 ```
+
+
 
 ```{r strdataset, results="hide"}
 
