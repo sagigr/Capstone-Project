@@ -12,9 +12,9 @@ The goal of this report is just to display that I've gotten used to working with
 
 ## Data Processing
 
-### Loading and preprocessing the data
+### Loading and Preprocessing the Data
 
-The [data set](https://d396qusza40orc.cloudfront.net/dsscapstone/dataset/Coursera-SwiftKey.zip) is from a corpus called [HC Corpora](www.corpora.heliohost.org).
+The [data set](https://d396qusza40orc.cloudfront.net/dsscapstone/dataset/Coursera-SwiftKey.zip) is from a blogs called [HC Corpora](www.corpora.heliohost.org).
 
 In this report I will use the English database, but the data set also includes three other databases in German, Russian and Finnish.  
 In the English data set we have the three following files of the English Blogs, News and Twitter data:
@@ -29,7 +29,6 @@ Let's see some basic details of these files, such as sizes of the files (Mbs):
 file.info("Coursera-Swiftkey/final/en_US/en_US.blogs.txt")$size / 1024^2
 file.info("Coursera-Swiftkey/final/en_US/en_US.news.txt")$size / 1024^2
 file.info("Coursera-Swiftkey/final/en_US/en_US.twitter.txt")$size / 1024^2
-
 blogs <- readLines("Coursera-Swiftkey/final/en_US/en_US.blogs.txt")
 news <- readLines("Coursera-Swiftkey/final/en_US/en_US.news.txt")
 twitter <- readLines("Coursera-Swiftkey/final/en_US/en_US.twitter.txt")
@@ -47,5 +46,39 @@ stri_stats_general(blogs)
 stri_stats_general(news)
 stri_stats_general(twitter)
 ```
+
+Now, I want to make the exploratory analysis of the data, including the tokenization and frequencies' demonstration.  
+**Note:** Due to the enormous amount of time and memory required to analyze the full data sets, I will use the samples of the data files with 10,000 lines of each data set.
+
+```{r samples, ,cache=TRUE, warning=FALSE}
+blogsample <- blogs[1:10000]
+newsample <- news[1:10000]
+twittersample <- twitter[1:10000]
+```
+
+### Explorating the Data: Tokenization and Frequencies
+
+#### Tokenization the Data
+
+For tokenization the data, I will clean the data by removing:
+- the numbers;  
+- the white spaces;  
+- the special characters;  
+- the profanity words (I used the text file from this source: [bad words](https://github.com/Xephi/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words/blob/master/en)).  
+
+```{r tokenization, cache=TRUE, warning=FALSE}
+library(tm)
+tblogs <- VCorpus(VectorSource(blogsample))
+tblogs <- tm_map(tblogs, removeNumbers) 
+tblogs <- tm_map(tblogs, stripWhitespace)
+tblogs <- tm_map(tblogs, content_transformer(tolower))
+tblogs <- tm_map(tblogs, removePunctuation)
+badwords <- readLines("./badwords.txt")
+tblogs <- tm_map(tblogs, removeWords, badwords)
+blogsdata <-data.frame(text=unlist(sapply(tblogs, `[`, "content")), stringsAsFactors=F)
+blogsdata[1:5,1]
+```
+
+
 
 ## Results
