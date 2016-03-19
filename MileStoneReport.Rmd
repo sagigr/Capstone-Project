@@ -76,7 +76,25 @@ tblogs <- tm_map(tblogs, removePunctuation)
 badwords <- readLines("./badwords.txt")
 tblogs <- tm_map(tblogs, removeWords, badwords)
 blogsdata <-data.frame(text=unlist(sapply(tblogs, `[`, "content")), stringsAsFactors=F)
-blogsdata[1:5,1]
+blogsdata[1:3,1]
+
+tnews <- VCorpus(VectorSource(newsample))
+tnews <- tm_map(tnews, removeNumbers) 
+tnews <- tm_map(tnews, stripWhitespace)
+tnews <- tm_map(tnews, content_transformer(tolower))
+tnews <- tm_map(tnews, removePunctuation)
+tnews <- tm_map(tnews, removeWords, badwords)
+newsdata <-data.frame(text=unlist(sapply(tnews, `[`, "content")), stringsAsFactors=F)
+newsdata[1:3,1]
+
+ttwitter <- VCorpus(VectorSource(twittersample))
+ttwitter <- tm_map(ttwitter, removeNumbers) 
+ttwitter <- tm_map(ttwitter, stripWhitespace)
+ttwitter <- tm_map(ttwitter, content_transformer(tolower))
+ttwitter <- tm_map(ttwitter, removePunctuation)
+ttwitter <- tm_map(ttwitter, removeWords, badwords)
+twitterdata <-data.frame(text=unlist(sapply(ttwitter, `[`, "content")), stringsAsFactors=F)
+twitterdata[1:3,1]
 ```
 
 
