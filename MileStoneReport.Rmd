@@ -116,7 +116,7 @@ bigramstwit <- NGramTokenizer(twitterdata, Weka_control(min = 2, max = 2))
 trigramstwit <- NGramTokenizer(twitterdata, Weka_control(min = 3, max = 3))
 ```
 
-Now I want to sort the n-grams to get the top 10 used n-grames in each data set:
+Now I want to sort the n-grams to get the top 10 used n-grams in each data set:
 
 ```{r sortgrams, cache=TRUE, warning=FALSE}
 
