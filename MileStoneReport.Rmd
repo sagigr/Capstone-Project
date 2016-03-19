@@ -116,9 +116,45 @@ bigramstwit <- NGramTokenizer(twitterdata, Weka_control(min = 2, max = 2))
 trigramstwit <- NGramTokenizer(twitterdata, Weka_control(min = 3, max = 3))
 ```
 
-Now I want to sort the n-grams to get the top 10 used n-grams in each data set:
+Now I want to sort the n-grams to get the top 10 used n-grams in the each data set:
 
 ```{r sortgrams, cache=TRUE, warning=FALSE}
+onegramsblogstab <- data.frame(table(onegramsblogs))
+onegramsnewstab <- data.frame(table(onegramsnews))
+onegramstwittab <- data.frame(table(onegramstwit))
+
+bigramsblogstab <- data.frame(table(bigramsblogs))
+bigramsnewstab <- data.frame(table(bigramsnews))
+bigramstwittab <- data.frame(table(bigramstwit))
+
+trigramsblogstab <- data.frame(table(trigramsblogs))
+trigramsnewstab <- data.frame(table(trigramsnews))
+trigramstwittab <- data.frame(table(trigramstwit))
+
+onegramsblogssort <- onegramsblogstab[order(onegramsblogstab$Freq,decreasing = TRUE),]
+onegramsnewssort <- onegramsnewstab[order(onegramsnewstab$Freq,decreasing = TRUE),]
+onegramstwitsort <- onegramstwittab[order(onegramstwittab$Freq,decreasing = TRUE),]
+
+bigramsblogssort <- bigramsblogstab[order(bigramsblogstab$Freq,decreasing = TRUE),]
+bigramsnewssort <- bigramsnewstab[order(bigramsnewstab$Freq,decreasing = TRUE),]
+bigramstwitsort <- bigramstwittab[order(bigramstwittab$Freq,decreasing = TRUE),]
+
+trigramsblogssort <- trigramsblogstab[order(trigramsblogstab$Freq,decreasing = TRUE),]
+trigramsnewssort <- trigramsnewstab[order(trigramsnewstab$Freq,decreasing = TRUE),]
+trigramstwitsort <- trigramstwittab[order(trigramstwittab$Freq,decreasing = TRUE),]
+
+top10onegramsblogs <- onegramsblogssort[1:10,]
+top10onegramsnews <- onegramsnewssort[1:10,]
+top10onegramstwitter <- onegramstwitsort[1:10,]
+
+top10bigramsblogs <- bigramsblogssort[1:10,]
+top10bigramsnews <- bigramsnewssort[1:10,]
+top10bigramstwitter <- bigramstwitsort[1:10,]
+
+top10trigramsblogs <- trigramsblogssort[1:10,]
+top10trigramsnews <- trigramsnewssort[1:10,]
+top10trigramstwitter <- trigramstwitsort[1:10,]
 
 ```
+
 ## Results
