@@ -103,10 +103,22 @@ I will use the **RWeka** package to create one-, bi- and tri-grams sets:
 
 ```{r rweka, cache=TRUE, warning=FALSE}
 library(RWeka)
-one-grams <- NGramTokenizer(blogsdata, Weka_control(min = 1, max = 1))
-bi-grams <- NGramTokenizer(blogsdata, Weka_control(min = 2, max = 2))
-tri-grams <- NGramTokenizer(blogsdata, Weka_control(min = 3, max = 3))
+onegramsblogs <- NGramTokenizer(blogsdata, Weka_control(min = 1, max = 1))
+bigramsblogs <- NGramTokenizer(blogsdata, Weka_control(min = 2, max = 2))
+trigramsblogs <- NGramTokenizer(blogsdata, Weka_control(min = 3, max = 3))
 
+onegramsnews <- NGramTokenizer(newsdata, Weka_control(min = 1, max = 1))
+bigramsnews <- NGramTokenizer(newsdata, Weka_control(min = 2, max = 2))
+trigramsnews <- NGramTokenizer(newsdata, Weka_control(min = 3, max = 3))
+
+onegramstwit <- NGramTokenizer(twitterdata, Weka_control(min = 1, max = 1))
+bigramstwit <- NGramTokenizer(twitterdata, Weka_control(min = 2, max = 2))
+trigramstwit <- NGramTokenizer(twitterdata, Weka_control(min = 3, max = 3))
 ```
 
+Now I want to sort the n-grams to get the top 10 used n-grames in each data set:
+
+```{r sortgrams, cache=TRUE, warning=FALSE}
+
+```
 ## Results
