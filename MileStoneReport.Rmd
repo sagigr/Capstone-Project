@@ -157,4 +157,35 @@ top10trigramstwitter <- trigramstwitsort[1:10,]
 
 ```
 
-## Results
+Let's build the plots of top 10 used n-grams for each data set:
+
+```{r plots, cache=TRUE, warning=FALSE}
+library(ggplot2)
+onegramsblogsplot <- ggplot(top10onegramsblogs, aes(x=onegramsblogs,y=Freq)) + geom_bar(stat="Identity") +geom_text(aes(label=Freq), vjust=-0.4)
+
+onegramsnewsplot <- ggplot(top10onegramsnews, aes(x=onegramsnews,y=Freq)) + geom_bar(stat="Identity") +geom_text(aes(label=Freq), vjust=-0.4)
+
+onegramstwitplot <- ggplot(top10onegramstwitter, aes(x=onegramstwit,y=Freq)) + geom_bar(stat="Identity") +geom_text(aes(label=Freq), vjust=-0.4)
+
+grid.arrange(onegramsblogsplot, onegramsnewsplot, onegramstwitplot)
+
+bigramsblogsplot <- ggplot(top10bigramsblogs, aes(x=bigramsblogs,y=Freq)) + geom_bar(stat="Identity") +geom_text(aes(label=Freq), vjust=-0.4)
+
+bigramsnewsplot <- ggplot(top10bigramsnews, aes(x=bigramsnews,y=Freq)) + geom_bar(stat="Identity") +geom_text(aes(label=Freq), vjust=-0.4)
+
+bigramstwitplot <- ggplot(top10bigramstwitter, aes(x=bigramstwit,y=Freq)) + geom_bar(stat="Identity") +geom_text(aes(label=Freq), vjust=-0.4)
+
+grid.arrange(bigramsblogsplot, bigramsnewsplot, bigramstwitplot)
+
+trigramsblogsplot <- ggplot(top10trigramsblogs, aes(x=trigramsblogs,y=Freq)) + geom_bar(stat="Identity") +geom_text(aes(label=Freq), vjust=-0.4)+theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+trigramsnewsplot <- ggplot(top10trigramsnews, aes(x=trigramsnews,y=Freq)) + geom_bar(stat="Identity") +geom_text(aes(label=Freq), vjust=-0.4)+theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+trigramstwitplot <- ggplot(top10trigramstwitter, aes(x=trigramstwit,y=Freq)) + geom_bar(stat="Identity") +geom_text(aes(label=Freq), vjust=-0.4)+theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+grid.arrange(trigramsblogsplot, trigramsnewsplot, trigramstwitplot)
+```
+
+## My Plans for Creating a Prediction Algorithm and Shiny App
+
+I plan to make even more cleaning and combining data from all three files, and making a representive sampling, to build a model and an algorithm to predict the next word, implementing it through Shiny App.
