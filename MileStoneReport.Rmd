@@ -97,6 +97,16 @@ twitterdata <- data.frame(text=unlist(sapply(ttwitter, `[`, "content")), strings
 twitterdata[1:3,1]
 ```
 
+#### Frequencies Analysis
 
+I will use the **RWeka** package to create one-, bi- and tri-grams sets:
+
+```{r rweka, cache=TRUE, warning=FALSE}
+library(RWeka)
+one-grams <- NGramTokenizer(blogsdata, Weka_control(min = 1, max = 1))
+bi-grams <- NGramTokenizer(blogsdata, Weka_control(min = 2, max = 2))
+tri-grams <- NGramTokenizer(blogsdata, Weka_control(min = 3, max = 3))
+
+```
 
 ## Results
