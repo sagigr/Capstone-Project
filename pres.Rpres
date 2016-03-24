@@ -1,0 +1,50 @@
+Developing Data Products: Course Project
+========================================================
+## **Shiny Application and Reproducible Pitch**
+
+Sagi Greenstine  
+February 28, 2016
+
+Project Info
+========================================================
+
+This Shiny application has been built and published to explore the [Movies dataset](http://www.inside-r.org/packages/cran/ggplot2/docs/movies).  
+
+In this application user can explore the data by adjusting his choices of IMDb ratings, year of release, genres etc.
+
+You can view the application at:
+
+* Shiny server link: [IMDb Movies Data Explorer Shiny App](https://sagigr.shinyapps.io/IMDb-Movies-Data-Explorer/)
+* Git-hub link: [Developing Data Products Git Repo](https://github.com/sagigr/Developing-Data-Products)  
+
+Summary of Dataset
+========================================================
+
+***movies* dataset**: The data had been received from multiple text files on the IMDb website and contains information about the movies released between 1893 and 2005.
+
+The *movies* dataset has 58,788 entries with 24 columns. The *movies* dataset's summary is as follows:
+
+```{r, echo=FALSE, warning=FALSE, cache=TRUE}
+require(movies.table)
+library(ggplot2movies)
+str(movies)
+```
+
+How to Use the Application
+========================================================
+
+In this application you can view the movies' data by filtering the data with following slider bars, combo box and checkboxes:
+
+1. **IMDb Rating** - choose the range of rating from 1 to 10.
+2. **Years** - choose the range of years' releases from 1893 to 2005.
+3. **Number of Votes** - choose the range of number of votes.
+4. **MPAA Rating** - choose one of a values of the rating.
+5. **Genres** - choose the genres of movies.
+
+You will see appropriate data in *Dataset* tab immediately with doing your choices.
+
+Thanks
+=========================================================
+
+## **Thank you for attention!**
+
