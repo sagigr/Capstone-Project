@@ -7,7 +7,7 @@ blogslines <- length(blogs)
 newslines <- length(news)
 twitlines <- length(twitter)
 # sampling the data
-samplerate <- 0.01
+samplerate <- 0.15
 blogsample <- blogs[sample(1:blogslines, blogslines*samplerate)]
 newsample <- news[sample(1:newslines, newslines*samplerate)]
 twitsample <- twitter[sample(1:twitlines, twitlines*samplerate)]
