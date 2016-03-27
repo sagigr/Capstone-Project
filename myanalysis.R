@@ -7,7 +7,7 @@ blogslines <- length(blogs)
 newslines <- length(news)
 twitlines <- length(twitter)
 # sampling the data
-samplerate <- 0.2
+samplerate <- 0.01
 blogsample <- blogs[sample(1:blogslines, blogslines*samplerate)]
 newsample <- news[sample(1:newslines, newslines*samplerate)]
 twitsample <- twitter[sample(1:twitlines, twitlines*samplerate)]
@@ -25,6 +25,9 @@ tsampledata <- tm_map(tsampledata, removeWords, badwords)
 #frequencies analysis
 library(RWekajars)
 library(RWeka)
+library(wordcloud)
+require(openNLP)
+require(reshape)
 NgramTokenizer <- function(l) {
   function(x) unlist(lapply(ngrams(words(x), l), paste, collapse = " "), use.names = FALSE)
 }
@@ -69,17 +72,17 @@ final_bigram <- transform(final_bigram, p = freq / bigram_count, pone = 0, termo
 final_trigram <- transform(final_trigram, p = freq / trigram_count, pw = 0, termone = terms$one, termtwo = terms$two, termthree = terms$three, terms = NULL)
 final_fourgram <- transform(final_fourgram, p = freq / fourgram_count, pw = 0, termone = terms$one, termtwo = terms$two, termthree = terms$three, termfour = terms$four, terms = NULL)
 #save final output for fast performace of Shiny App
-saveRDS(final_unigram, file = "data/final_unigram.Rda")
-saveRDS(final_bigram, file = "data/final_bigram.Rda")
-saveRDS(final_trigram, file = "data/final_trigram.Rda")
-saveRDS(final_fourgram, file = "data/final_fourgram.Rda")
+saveRDS(final_unigram, file = "final_unigram.Rda")
+saveRDS(final_bigram, file = "final_bigram.Rda")
+saveRDS(final_trigram, file = "final_trigram.Rda")
+saveRDS(final_fourgram, file = "final_fourgram.Rda")
 
 #Significantly reduce data size by only keeping grams greater than the avg count
 final_bigram_sm <- final_bigram[final_bigram$freq > mean(final_bigram$freq),]
 final_trigram_sm <- final_trigram[final_trigram$freq > mean(final_trigram$freq),]
 final_fourgram_sm <- final_fourgram[final_fourgram$freq > mean(final_fourgram$freq),]
 
-saveRDS(final_bigram_sm, file = "data/final_bigram_sm.Rda")
-saveRDS(final_trigram_sm, file = "data/final_bigram_sm.Rda")
-saveRDS(final_fourgram_sm, file = "data/final_bigram_sm.Rda")
+saveRDS(final_bigram_sm, file = "final_bigram_sm.Rda")
+saveRDS(final_trigram_sm, file = "final_bigram_sm.Rda")
+saveRDS(final_fourgram_sm, file = "final_bigram_sm.Rda")
 
