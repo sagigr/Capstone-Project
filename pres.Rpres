@@ -18,7 +18,9 @@ You can use the application [here]().
 Algorithm and Used Models - CHANGE IT!
 ========================================================
 
-The source of language patterns for building the prediction model were three English-language text files: blogs, news and twitter, taken from the [data set](https://d396qusza40orc.cloudfront.net/dsscapstone/dataset/Coursera-SwiftKey.zip) ([HC Corpora](www.corpora.heliohost.org)).
+The source of language patterns for building the prediction model were three English-language text files: blogs, news and twitter, taken from the [data set](https://d396qusza40orc.cloudfront.net/dsscapstone/dataset/Coursera-SwiftKey.zip) ([HC Corpora](www.corpora.heliohost.org)).  
+The data of these files was sampled (by taking of 10% of the number of rows in each file) and united to one data set.
+The new data set was tokenized and N-grams (uni-, bi-, tri-, four-grams) were generated.
 
 For producing the predictions in this application I used severeal Natural Language Proccessing models such as n-grams building, Markov's and Back-off models.
 
