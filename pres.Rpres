@@ -12,13 +12,18 @@ This Shiny App is designed to predict the next possible word (the prediction bas
 
 This application was created as a final assignment of the Capstone Project in the Coursera Data Science Specialization.
 
-You can use the application [herea]().
+You can use the application [here]().
 
 
-Algorithm and Used Models
+Algorithm and Used Models - CHANGE IT!
 ========================================================
 
 For producing the predictions in this application I used severeal Natural Language Proccessing models such as n-grams building, Markov's and Back-off models.
+
+The application uses text documents collected from blogs, news articles, and twitter to statistically model language patterns. 
+N-Grams, Markov Model and Katz's back-off model were used to predict the next word. 
+The modeling process used a large set of data so it was batched. 
+The batch process created a much smaller set of data to be used in the application for fast real-time performance. 
 
 How to Use the Application
 ========================================================
