@@ -15,26 +15,22 @@ This application was created as a final assignment of the Capstone Project in th
 You can use the application [here]().
 
 
-Algorithm and Used Models - CHANGE IT!
+Algorithm and Used Models
 ========================================================
 
 The source of language patterns for building the prediction model were three English-language text files: blogs, news and twitter, taken from the [data set](https://d396qusza40orc.cloudfront.net/dsscapstone/dataset/Coursera-SwiftKey.zip) ([HC Corpora](www.corpora.heliohost.org)).  
-The data of these files was sampled (by taking of 10% of the number of rows in each file) and united to one data set.
-The new data set was tokenized and N-grams (uni-, bi-, tri-, four-grams) were generated.
-
-For producing the predictions in this application I used severeal Natural Language Proccessing models such as n-grams building, Markov's and Back-off models.
-
-The application uses text documents collected from blogs, news articles, and twitter to statistically model language patterns. 
-N-Grams, Markov Model and Katz's back-off model were used to predict the next word. 
-The modeling process used a large set of data so it was batched. 
-The batch process created a much smaller set of data to be used in the application for fast real-time performance. 
+The data of these files was sampled (by samping of 10% of the number of rows in each file) and united to one data set.  
+The new data set was tokenized and N-grams (uni-, bi-, tri-, four-grams) were generated. From these N-grams were removed n-grams with the frequencies less than the average.  
+Finally, were generated N-grams files for their subsequent using in predicting process in the app.  
+For producing the predictions in this app I used severeal Natural Language Proccessing models such as n-grams building, Markov's and Back-off models.
 
 How to Use the Application
 ========================================================
 
 The usage of this application is very intuitive and simple.
 
-Start typing your text in the text field on the screen and immediately, after the typing of the first word, will appear below up to four options of the next possible word. These options will be displayed on the buttons, clicking on which will automatically type this option as the subsequent word to your already entered text.
+Start typing your text in the text field on the screen and immediately, after the typing of the first word, will appear below up to four options of the next possible word.
+These options will be displayed on the buttons, clicking on which will automatically type this option as the subsequent word to your already entered text.
 
 Please use the "Clear" button to clear the text field from all the entered text there.
 
