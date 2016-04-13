@@ -7,7 +7,7 @@
 ### **The Usage and Technical Details**
 
 #### The usage of this application is very intuitive and simple.  
-#### Start typing your text in the text field on the screen and immediately after the typing of the first word will appear below up to four options of the next possible word. These options will be displayed on the buttons, clicking on which will automatically type this option as the subsequent word to your already entered text.  
+#### Start typing your text in the text field on the screen and immediately, after the typing of the first word, will appear below up to four options of the next possible word. These options will be displayed on the buttons, clicking on which will automatically type this option as the subsequent word to your already entered text.  
 #### Please use the "Clear" button to clear the text field from all the entered text there.
 
 #### A more detailed and full description of this application and Capstone Project described in the presentation available [here]().
