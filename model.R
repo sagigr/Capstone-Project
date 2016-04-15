@@ -1,20 +1,18 @@
 library(tm)
 
-bigram <- readRDS(file="data/final_bigram_sm.Rda")
-trigram <- readRDS(file="data/final_trigram_sm.Rda")
-fourgram <- readRDS(file="data/final_fourgram_sm.Rda")
+bigram <- readRDS(file="bigram.Rda")
+trigram <- readRDS(file="trigram.Rda")
+fourgram <- readRDS(file="fourgram.Rda")
 
 
 nextWordPredictor <- function(inputTxt) {
     
     if(nchar(inputTxt) > 0) {
-        #clean input
         inputTxt <- tolower(inputTxt)
         inputTxt <- removeNumbers(inputTxt)
         inputTxt <- removePunctuation(inputTxt)
         inputTxt <- stripWhitespace(inputTxt)
         
-        #split into words
         inputList <- unlist(strsplit(inputTxt, " "))
         
         print(inputList)
@@ -40,37 +38,30 @@ nextWordPredictor <- function(inputTxt) {
         }
         
         if(numWords == 1) {
-            #print("running bigram")
             predList <- runBigram(inputList[1])
         }else if (numWords == 2) {
-            #print("running trigram")
             word1 <- inputList[1]
             word2 <- inputList[2]
             predList <- runTrigram(c(word1, word2))
             
             if(length(predList) == 0){
-                #print("Trigram failed running bigram")
                 predList <- runBigram(word2)
             }
         }else {
-            #print("running fourgram")
             word1 <- inputList[numWords-2]
             word2 <- inputList[numWords-1]
             word3 <- inputList[numWords]
             predList <- runFourgram(c(word1, word2, word3))
             
             if(length(predList) == 0){
-                #print("fourgram failed running trigram")
                 predList <- runTrigram(c(word2,word3))
             }
             
             if(length(predList) == 0){
-                #print("trigram failed running bigram")
                 predList <- runBigram(word3)
             }
         }
         
-        #Return top n predictors
         n <- 4
         tp <- length(predList)
         
@@ -86,6 +77,3 @@ nextWordPredictor <- function(inputTxt) {
     
     
 }
-# ptm <- proc.time()
-# nextWordPredictor("the world")
-# proc.time() - ptm
