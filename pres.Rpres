@@ -1,8 +1,10 @@
+
 Data Science Capstone: Final Project
 ========================================================
 ## **Next Word Prediction Shiny App**
 
 Sagi Greenstine  
+
 April 24, 2016
 
 Project Info
@@ -18,7 +20,7 @@ You can use the application [here]().
 Algorithm and Used Models
 ========================================================
 
-The source of language patterns for building the prediction model were three English-language text files: blogs, news and twitter, taken from the [data set](https://d396qusza40orc.cloudfront.net/dsscapstone/dataset/Coursera-SwiftKey.zip) ([HC Corpora](www.corpora.heliohost.org)).  
+The source of language patterns for building the prediction model were three English-language text files: blogs, news and twitter, taken from the [data set](https://d396qusza40orc.cloudfront.net/dsscapstone/dataset/Coursera-SwiftKey.zip) of [HC Corpora](www.corpora.heliohost.org).  
 The data of these files was sampled (by samping of 10% of the number of rows in each file) and united to one data set.  
 The new data set was tokenized and N-grams (uni-, bi-, tri-, four-grams) were generated. From these N-grams were removed n-grams with the frequencies less than the average.  
 Finally, were generated N-grams files for their subsequent using in predicting process in the app.  
@@ -29,14 +31,18 @@ How to Use the Application
 
 The usage of this application is very intuitive and simple.
 
-Start typing your text in the text field on the screen and immediately, after the typing of the first word, will appear below up to four options of the next possible word.
+Start typing your text in the text field on the screen and immediately, with starting of your typing, will appear below up to four options of the next possible word.
 These options will be displayed on the buttons, clicking on which will automatically type this option as the subsequent word to your already entered text.
 
-Please use the "Clear" button to clear the text field from all the entered text there.
+Please use the "Clear" button to clear the text field from all the entered text there.  
+
+See the screenshot of the application on the next slide.
 
 
-Thanks
+Next Word Prediction App Screenshot
 =========================================================
+
+![ ](app.jpg)
 
 ## **Thank you for attention!**
 
